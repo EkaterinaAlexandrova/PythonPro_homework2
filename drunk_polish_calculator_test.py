@@ -7,9 +7,9 @@ def test_op_plus(x:float, y:float, expected_result:float):
     result = op_plus(x, y)
     assert result == expected_result
 
-@pytest.mark.parametrize("x,y,expected_result", [(5,2,3), (10,10,0), (5,-3,8)])
+@pytest.mark.parametrize("x,y,expected_result", [(2,5,3), (10,10,0), (-3,5,8)])
 def test_op_minus(x:float, y:float, expected_result:float):
-    result = op_minus(y, x)
+    result = op_minus(x, y)
     assert result == expected_result
 
 @pytest.mark.parametrize("x,y,expected_result", [(2,3,6), (0,10,0), (-4,5,-20)])
@@ -17,7 +17,7 @@ def test_op_multiply(x:float, y:float, expected_result:float):
     result = op_multiply(x, y)
     assert result == expected_result
 
-@pytest.mark.parametrize("x,y,expected_result", [(10, 2, 5), (7, 2, 3.5), (0, 5, 0)])
+@pytest.mark.parametrize("x,y,expected_result", [(2,10,5), (2,7,3.5), (5,0,0)])
 def test_op_divide(x: float, y: float, expected_result: float):
     result = op_divide(x, y)
     assert result == expected_result
