@@ -253,10 +253,10 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 07-Jun-2023 at 23:46:35 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 17-Jun-2023 at 15:09:42 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Summary</h2>
-    <p>8 tests ran in 0.02 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">6 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>16 tests ran in 0.04 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">15 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -270,25 +270,16 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::test_op_minus</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_main_output[8 2 /-4.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">def test_op_minus():<br/>&gt;       assert op_minus(5, 2) == 3<br/><span class="error">E       assert -3 == 3</span><br/><span class="error">E        +  where -3 = op_minus(5, 2)</span><br/><br/>drunk_polish_calculator_test.py:13: AssertionError<br/></div></td></tr></tbody>
-      <tbody class="failed results-table-row">
-        <tr>
-          <td class="col-result">Failed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::test_main_op_divide</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">def test_main_op_divide():<br/>        sys.stdin = StringIO(&#x27;6 2 /&#x27;)<br/>        sys.stdout = result = StringIO()<br/>        main()<br/>&gt;       assert result.getvalue().strip() == &#x27;Expression with space delimiter:3.0&#x27;<br/><span class="error">E       AssertionError: assert &#x27;Expression w...3333333333333&#x27; == &#x27;Expression w...delimiter:3.0&#x27;</span><br/><span class="error">E         - Expression with space delimiter:3.0</span><br/><span class="error">E         ?                                  ^^</span><br/><span class="error">E         + Expression with space delimiter:0.3333333333333333</span><br/><span class="error">E         ?                                 ++ ^^^^^^^^^^^^^^^</span><br/><br/>drunk_polish_calculator_test.py:53: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">capsys = &lt;_pytest.capture.CaptureFixture object at 0x7ff645d9de70&gt;, expression = &#x27;8 2 /&#x27;, expected_result = &#x27;4.0&#x27;<br/><br/>    @pytest.mark.parametrize(<br/>        &quot;expression, expected_result&quot;,<br/>        [<br/>            (&quot;1 1 +&quot;, &quot;2.0&quot;),<br/>            (&quot;5 2 -&quot;, &quot;3.0&quot;),<br/>            (&quot;5 4 *&quot;, &quot;20.0&quot;),<br/>            (&quot;8 2 /&quot;, &quot;4.0&quot;)<br/>        ]<br/>    )<br/>    <br/>    def test_main_output(capsys, expression, expected_result):<br/>        with patch(&quot;builtins.input&quot;, return_value=expression):<br/>            main()<br/>&gt;       assert capsys.readouterr().out.rstrip() == expected_result<br/><span class="error">E       AssertionError: assert &#x27;0.25&#x27; == &#x27;4.0&#x27;</span><br/><span class="error">E         - 4.0</span><br/><span class="error">E         + 0.25</span><br/><br/>drunk_polish_calculator_test.py:41: AssertionError<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::test_op_plus</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_op_plus[2-3-5]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -297,7 +288,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::test_op_divide</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_op_plus[-1-5-4]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -306,7 +297,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::test_op_multiplu</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_op_plus[0-0-0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -315,7 +306,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::test_main_op_plus</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_op_minus[5-2-3]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -324,7 +315,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::test_main_op_minus</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_op_minus[10-10-0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -333,7 +324,88 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">drunk_polish_calculator_test.py::test_main_op_multiply</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_op_minus[5--3-8]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_op_multiply[2-3-6]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_op_multiply[0-10-0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_op_multiply[-4-5--20]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_op_divide[10-2-5]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_op_divide[7-2-3.5]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_op_divide[0-5-0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_main_output[1 1 +-2.0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_main_output[5 2 --3.0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">drunk_polish_calculator_test.py::test_main_output[5 4 *-20.0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
